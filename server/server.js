@@ -12,4 +12,4 @@
     })
 
 
-    io.listen(3001);
+    io.listen(process.env.PORT || 3001);
