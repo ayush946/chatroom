@@ -2,7 +2,7 @@
     const io = new Server({
         connectionStateRecovery: {},
         cors: {
-            origin: "http://localhost:3000"
+            origin: ["http://localhost:3000", "https://chatroom-blush.vercel.app/chatroom"]
         }
     });
     io.on("connection", (socket) => {
