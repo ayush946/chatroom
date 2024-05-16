@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import {BrowserRouter, Routes, Route, useNavigate} from 'react-router-dom';
+import Chatroom from './chatroom';
+import { v4 as uuid } from "uuid";
 
+// const colors = ['#6DC5D1', '#FDE49E', '#006769', '#40A578', '#FEB941'];
+ 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element ={<Login/>}/>
+        <Route path='chatroom/:url' element={<Chatroom/>} />
+
+      </Routes>
+    </BrowserRouter>
   );
+}
+const Login = () =>{
+  const nevigate = useNavigate();
+  const [name, setName] = useState("");
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(name);  
+    let dir = name + '_' + uuid();
+    nevigate(`/chatroom/${dir}`);
+  }
+  return (
+    <form onSubmit={handleSubmit}>
+    <label> Enter Your Name</label>
+    <input type='text' value={name} onChange={(e) => setName(e.target.value)}></input>
+    <input type='submit' ></input>
+  </form>
+  )
 }
 
 export default App;

@@ -1,0 +1,38 @@
+/* Chat container */
+.chat {
+  display: flex;
+  flex-direction: column-reverse;
+  overflow-y: auto;
+  height: 90vh; /* Adjust this value as needed */
+}
+
+.chat-window {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+  
+  .chat-thread {
+    list-style: none;
+    padding: 0;
+  }
+  
+  
+  /* Chat input field */
+  .chat-window-message {
+    /* Styling for the chat input field */
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+  }
+
+  .right{
+    display: flex;
+    justify-content: flex-end;
+  }
+  .left{
+    display: flex;
+  }
+  
