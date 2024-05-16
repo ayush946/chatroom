@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { io } from "socket.io-client";
 import './chatroom.css';
 import ChatThread from "./chatThread";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
 let socket;
 
@@ -40,6 +42,7 @@ function Chatroom (){
     }
     
     return(
+        <div className="main">
         <div className="chat">
             <ul className="chat-thread">
                 {msgList.map((data, index) => (
@@ -49,12 +52,19 @@ function Chatroom (){
                     
                 ))}
             </ul>
-            <form className="chat-window" onSubmit={handleSubmit}>
-                <label> Enter your msg here</label>
-                <input className="chat-window-message" type="text" value={msg} onChange={(e) => setMsg(e.target.value)}></input>
-                <input type="submit"/>
+            <div className="chat-window">
+            <form  onSubmit={handleSubmit}>
+                {/* <label> Enter your msg here</label> */}
+                <input className="chat-window-msg" type="text" placeholder="Type a message" value={msg} onChange={(e) => setMsg(e.target.value)}></input>
+                {/* <input className="sent-btn" type="submit" value={<FontAwesomeIcon icon={faPaperPlane} />} /> */}
+                <button className="sent-btn" type="submit">
+                    <FontAwesomeIcon icon={faPaperPlane} />
+                </button>
+
             </form>
+            </div>
             
+        </div>
         </div>
     )
 }

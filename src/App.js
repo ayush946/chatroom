@@ -27,10 +27,10 @@ const Login = () =>{
     nevigate(`/chatroom/${dir}`);
   }
   return (
-    <form onSubmit={handleSubmit}>
+    <form className='form-box' onSubmit={handleSubmit}>
     <label> Enter Your Name</label>
-    <input type='text' value={name} onChange={(e) => setName(e.target.value)}></input>
-    <input type='submit' ></input>
+    <input className='input-box' type='text' value={name} onChange={(e) => setName(e.target.value)}></input>
+    <input className="submit-box"type='submit' ></input>
   </form>
   )
 }
