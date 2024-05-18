@@ -4,7 +4,7 @@ import {BrowserRouter, Routes, Route, useNavigate} from 'react-router-dom';
 import Chatroom from './chatroom';
 import { v4 as uuid } from "uuid";
 
-// const colors = ['#6DC5D1', '#FDE49E', '#006769', '#40A578', '#FEB941'];
+const colors = ['240750', '32012F', '0C0C0C', '1B1A55', '750E21'];
  
 function App() {
   return (
@@ -23,7 +23,9 @@ const Login = () =>{
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(name);  
-    let dir = name + '_' + uuid();
+    const index = Math.ceil(Math.random() * (colors.length - 1) );
+    let dir = name + '_' + uuid() + '_' + colors[index];
+    console.log("dir: ", dir);
     nevigate(`/chatroom/${dir}`);
   }
   return (

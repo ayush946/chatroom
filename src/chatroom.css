@@ -6,7 +6,7 @@
 
 } 
 .chat{
-  border: 1px solid;
+  /* border: 1px solid; */
   display: flex;
   flex-direction: column;
   padding-left: 2vw;
@@ -16,7 +16,6 @@
 .chat-thread{
   display: flex;
   flex-direction: column-reverse;
-  /* border: 1px dotted; */
   overflow-y: auto;
   height: 90vh;
 }
@@ -28,6 +27,16 @@
 .left{
   display: flex;
 }
+
+.thread{
+  list-style-type: none;
+  background-color: #97E7E1;
+  border: 1px solid ;
+  border-radius: 5px;
+  margin: 5px 0 5px 0;
+  max-width: 25vw;
+}
+
 .chat-window{
   display: flex;
   justify-content: center;

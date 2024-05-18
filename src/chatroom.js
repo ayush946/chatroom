@@ -15,6 +15,9 @@ function Chatroom (){
     let urlArray = url.split('_');
     const userName = urlArray[0];
     const userId = urlArray[1];
+    const color = urlArray[2];
+    console.log(url)
+    console.log("---color---: ", urlArray);
 
     useEffect( () => {
         socket = io(`http://localhost:3001/`);
@@ -47,20 +50,17 @@ function Chatroom (){
             <ul className="chat-thread">
                 {msgList.map((data, index) => (
                     <div className={ data.userId === userId ? "right" : "left"}>
-                        <li key={index}><ChatThread data={data}/></li>
+                        <li className="thread" key={index}><ChatThread data={data} color={color}/></li>
                     </div>
                     
                 ))}
             </ul>
             <div className="chat-window">
             <form  onSubmit={handleSubmit}>
-                {/* <label> Enter your msg here</label> */}
                 <input className="chat-window-msg" type="text" placeholder="Type a message" value={msg} onChange={(e) => setMsg(e.target.value)}></input>
-                {/* <input className="sent-btn" type="submit" value={<FontAwesomeIcon icon={faPaperPlane} />} /> */}
                 <button className="sent-btn" type="submit">
                     <FontAwesomeIcon icon={faPaperPlane} />
                 </button>
-
             </form>
             </div>
             
